@@ -1,0 +1,3 @@
+module OpenStates
+  VERSION = "0.0.1"
+end
