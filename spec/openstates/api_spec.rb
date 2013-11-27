@@ -77,7 +77,7 @@ describe OpenStates::Api do
 
     it "should call .get with 'legislators/geo/' and a hash with lat/lon" do
       lat, lon = 10,10
-      expect(OpenStates).to receive(:get).with("legislators/geo/", {:lat => lat, :lon => lon})
+      expect(OpenStates).to receive(:get).with("legislators/geo/", {:lat => lat, :long => lon})
       OpenStates.geo_legislators(lat, lon)
     end
   end
