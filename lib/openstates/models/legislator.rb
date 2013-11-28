@@ -1,23 +1,26 @@
 module OpenStates
   class Legislator
     include Model
-    hash_attr_accessor :leg_id,
-                       :state,
-                       :active,
+    hash_attr_accessor :active,
                        :chamber,
-                       :district,
-                       :party,
-                       :email,
-                       :full_name,
-                       :first_name,
-                       :middle_name,
-                       :last_name,
-                       :suffixes,
-                       :photo_url,
-                       :url,
                        :created_at,
+                       :district,
+                       :email,
+                       :first_name,
+                       :full_name,
+                       :last_name,
+                       :leg_id,
+                       :middle_name,
+                       :offices,
+                       :old_roles,
+                       :party,
+                       :photo_url,
+                       :roles,
+                       :state,
+                       :suffixes,
+                       :transparencydata_id,
                        :updated_at,
-                       :transparencydata_id
+                       :url
 
     class << self
       def api_method
