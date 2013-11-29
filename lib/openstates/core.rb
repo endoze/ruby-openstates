@@ -9,6 +9,7 @@ require 'openstates/api'
 require 'openstates/model'
 require 'openstates/models/legislator'
 require 'openstates/models/bill'
+require 'openstates/models/committee'
 
 module OpenStates
   extend OpenStates::Configuration
