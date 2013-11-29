@@ -8,9 +8,12 @@ module OpenStates
 
     def bills(options = {})
       url = "bills/"
-      url << "#{options[:state]}/#{options[:session]}/#{options[:bill_id]}" if options[:state] &&
-                                                                               options[:session] &&
-                                                                               options[:bill_id]
+      if options[:state] && options[:session] && options[:bill_id]
+        url << "#{options[:state]}/#{options[:session]}/#{options[:bill_id]}/"
+        [:state, :session, :bill_id].each do |key|
+          options.delete(key)
+        end
+      end
 
       get(url, options)
     end

@@ -41,7 +41,7 @@ describe OpenStates::Api do
     context "with an options hash passed" do
       it "should call .get with 'bills/in/summer/10' and an options hash" do
         options = {:state => "in", :session => "summer", :bill_id => 10}
-        expect(OpenStates).to receive(:get).with("bills/#{options[:state]}/#{options[:session]}/#{options[:bill_id]}", options)
+        expect(OpenStates).to receive(:get).with("bills/#{options[:state]}/#{options[:session]}/#{options[:bill_id]}/", options)
         OpenStates.bills(options)
       end
     end
