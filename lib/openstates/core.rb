@@ -11,6 +11,7 @@ require 'openstates/models/legislator'
 require 'openstates/models/bill'
 require 'openstates/models/committee'
 require 'openstates/models/district'
+require 'openstates/models/event'
 
 module OpenStates
   extend OpenStates::Configuration
