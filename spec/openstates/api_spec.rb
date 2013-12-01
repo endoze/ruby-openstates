@@ -127,22 +127,25 @@ describe OpenStates::Api do
   end
 
   describe ".districts" do
-    it "should call .get on OpenStates" do
-      expect(OpenStates).to receive(:get)
-      OpenStates.districts
-    end
-
     context "without an options hash passed" do
-      it "should call .get with 'districts/' and an empty hash" do
-        expect(OpenStates).to receive(:get).with("districts/", {})
-        OpenStates.districts
+      it "should return an Array" do
+        expect(OpenStates.districts).to be_an Array
+      end
+
+      it "should return an empty Array" do
+        expect(OpenStates.districts).to be_empty
       end
     end
 
     context "with an options hash passed" do
       context "with a state key only" do
+        it "should call .get on OpenStates" do
+          expect(OpenStates).to receive(:get)
+          OpenStates.districts(state: 'fl')
+        end
+
         it "should call .get with 'districts/' and an options hash" do
-          options = {:state => 'in'}
+          options = {:state => 'oh'}
           expect(OpenStates).to receive(:get).with("districts/#{options[:state]}/", options)
           OpenStates.districts(options)
         end
@@ -167,7 +170,7 @@ describe OpenStates::Api do
 
     context "with a boundary_id parameter" do
       it "should call .get with 'districts/:boundary_id'" do
-        expect(OpenStates).to receive(:get).with("districts/boundary/#{boundary_id}")
+        expect(OpenStates).to receive(:get).with("districts/boundary/#{boundary_id}/")
         OpenStates.district_boundaries(boundary_id)
       end
     end

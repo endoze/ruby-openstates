@@ -10,6 +10,7 @@ require 'openstates/model'
 require 'openstates/models/legislator'
 require 'openstates/models/bill'
 require 'openstates/models/committee'
+require 'openstates/models/district'
 
 module OpenStates
   extend OpenStates::Configuration

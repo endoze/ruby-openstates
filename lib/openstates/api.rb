@@ -46,9 +46,11 @@ module OpenStates
     end
 
     def districts(options = {})
+      return [] if !options[:state]
+
       url = "districts/"
-      url << "#{options[:state]}/" if options[:state]
-      url << "#{options[:chamber]}/" if options[:state] && options[:chamber]
+      url << "#{options[:state]}/"
+      url << "#{options[:chamber]}/" if options[:chamber]
 
       get(url, options)
     end
@@ -56,7 +58,7 @@ module OpenStates
     def district_boundaries(boundary_id)
       return if !boundary_id
 
-      url = "districts/boundary/#{boundary_id}"
+      url = "districts/boundary/#{boundary_id}/"
 
       get(url)
     end

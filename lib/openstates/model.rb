@@ -34,7 +34,6 @@ module OpenStates
       def where(options = {})
         return [] if options.empty?
 
-
         OpenStates.send(api_method, options).map do |leg_hash|
           from_hash(leg_hash)
         end
