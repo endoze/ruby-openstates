@@ -9,6 +9,7 @@ module OpenStates
                        :chamber,
                        :id,
                        :lat_delta,
+                       :legislators,
                        :lon_delta,
                        :name,
                        :num_seats,
