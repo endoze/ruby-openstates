@@ -15,6 +15,11 @@ module OpenStates
         end
       end
 
+      if options[:id]
+        url << "#{options[:id]}/"
+        options.delete(:id)
+      end
+
       get(url, options)
     end
 
