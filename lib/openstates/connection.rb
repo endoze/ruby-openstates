@@ -1,6 +1,6 @@
 module OpenStates
   module Connection
-    BASE_URL = 'http://openstates.org/api/v1/'
+    BASE_URL = 'https://openstates.org/api/v1/'
     def connection
       @connection ||= begin
         conn = Faraday.new(BASE_URL) do |b|
