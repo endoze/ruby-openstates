@@ -1,0 +1,9 @@
+language: ruby
+
+script:
+  - bundle
+  - bundle exec rspec spec
+
+branches:
+  only:
+    - master
