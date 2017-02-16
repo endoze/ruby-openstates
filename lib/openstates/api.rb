@@ -18,6 +18,11 @@ module OpenStates
       get(url, options)
     end
 
+    def bill(os_id)
+      url = "bills/#{os_id}/"
+      get(url, {})
+    end
+
     def legislators(options = {})
       url = "legislators/"
       url << "#{options[:leg_id]}/" if options[:leg_id]

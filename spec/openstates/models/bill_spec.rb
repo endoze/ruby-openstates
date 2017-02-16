@@ -30,4 +30,20 @@ describe OpenStates::Bill do
       end
     end
   end
+
+  describe ".find_by_openstates_id" do
+    context "openstates id is legit" do
+      it "should return a Bill" do
+        expect(OpenStates::Bill.find_by_openstates_id("KSB00005007")).to be_a described_class
+      end
+    end
+
+    context "openstates id is not legit" do
+      it "should raise 404 error" do
+        expect do
+          OpenStates::Bill.find_by_openstates_id("not-real")
+        end.to raise_error Faraday::ResourceNotFound
+      end
+    end
+  end
 end
