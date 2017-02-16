@@ -45,6 +45,14 @@ describe OpenStates::Api do
         OpenStates.bills(options)
       end
     end
+
+    context "with the id passed" do
+      it "should call .get with 'bills/10' and an options hash" do
+        options = {:id => 10}
+        expect(OpenStates).to receive(:get).with("bills/#{options[:id]}/", options)
+        OpenStates.bills(options)
+      end
+    end
   end
 
   describe ".legislators" do

@@ -32,7 +32,7 @@ module OpenStates
       end
 
       def id_key
-        :bill_id
+        :id
       end
 
       def bill_details(state, session, bill_id)
