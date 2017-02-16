@@ -50,6 +50,8 @@ module OpenStates
       end
 
       def find_by_openstates_id(os_id)
+        return if !os_id
+
         response = OpenStates.bill(os_id)
 
         from_hash(response)

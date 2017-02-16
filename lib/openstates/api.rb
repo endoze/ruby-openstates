@@ -33,7 +33,7 @@ module OpenStates
     def geo_legislators(lat, lon)
       url = "legislators/geo/"
 
-      get(url, {:lat => lat, :long => lon})
+      get(url, {lat: lat, long: lon})
     end
 
     def committees(options = {})
