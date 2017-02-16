@@ -59,6 +59,12 @@ You can also search for a specific bill by it's bill_id.
 bill = OpenStates::Bill.find("12345")
 ```
 
+Or by its OpenStates `id`.
+
+```rb
+bill = OpenStates::Bill.find_by_openstates_id("KS00012345")
+```
+
 And lastly, you can get bill details by using the `bill_details` class
 method on OpenStates::Bill.
 

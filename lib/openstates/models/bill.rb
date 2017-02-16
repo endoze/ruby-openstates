@@ -48,6 +48,12 @@ module OpenStates
 
         from_hash(response)
       end
+
+      def find_by_openstates_id(os_id)
+        response = OpenStates.bill(os_id)
+
+        from_hash(response)
+      end
     end
   end
 end
