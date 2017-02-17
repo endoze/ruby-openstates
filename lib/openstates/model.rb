@@ -24,7 +24,7 @@ module OpenStates
       def find(id)
         return if !id
 
-        id_hash = Hash.new
+        id_hash = {}
         id_hash[id_key] = id
         response = OpenStates.send(api_method, id_hash)
 
@@ -52,12 +52,11 @@ module OpenStates
       return unless hash
 
       hash.each do |key, value|
+        next if value.nil?
+
         set_attr_method = "#{key}="
-        unless value.nil?
-          if respond_to?(set_attr_method)
-            self.__send__(set_attr_method, value)
-          end
-        end
+
+        __send__(set_attr_method, value) if respond_to?(set_attr_method)
       end
     end
   end

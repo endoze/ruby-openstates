@@ -1,13 +1,15 @@
 module OpenStates
   module Connection
-    BASE_URL = 'https://openstates.org/api/v1/'
+    BASE_URL = 'https://openstates.org/api/v1/'.freeze
+
+    # rubocop:disable Metrics/LineLength, Metrics/AbcSize, Metrics/MethodLength
     def connection
       @connection ||= begin
         conn = Faraday.new(BASE_URL) do |b|
           b.use Faraday::Response::Logger, logger
           b.use FaradayMiddleware::Mashify
           b.use FaradayMiddleware::ParseJson, content_type: 'application/json'
-          b.use FaradayMiddleware::Caching, cache, strip_params: %w[apikey] unless cache.nil?
+          b.use FaradayMiddleware::Caching, cache, strip_params: %w(apikey) unless cache.nil?
           b.response :raise_error
           b.adapter Faraday.default_adapter
         end
@@ -17,6 +19,7 @@ module OpenStates
         conn
       end
     end
+    # rubocop:enable Metrics/LineLength, Metrics/AbcSize, Metrics/MethodLength
 
     def get(path, params = nil)
       response = connection.get(path) do |request|
