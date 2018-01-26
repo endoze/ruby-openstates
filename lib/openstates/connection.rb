@@ -7,7 +7,7 @@ module OpenStates
       @connection ||= begin
         conn = Faraday.new(BASE_URL) do |b|
           b.use Faraday::Response::Logger, logger
-          b.use FaradayMiddleware::Mashify
+          b.use OpenStates::Mashify
           b.use FaradayMiddleware::ParseJson, content_type: 'application/json'
           b.use FaradayMiddleware::Caching, cache, strip_params: %w(apikey) unless cache.nil?
           b.response :raise_error
