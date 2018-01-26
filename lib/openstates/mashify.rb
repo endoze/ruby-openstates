@@ -7,7 +7,7 @@ module OpenStates
     end
 
     def parse(body)
-      Hashie::Mash.new(body)
+      Mashed.new(body)
     end
   end
 end
